@@ -1,0 +1,1 @@
+/home/bobo/code/kinect1_drive/build/lib/CMakeFiles/kinect1_drive.dir

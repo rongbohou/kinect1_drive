@@ -1,0 +1,35 @@
+# Prerequisites #######################################################
+install opencv2.412: http://www.samontab.com/web/2014/06/installing-opencv-2-4-9-in-ubuntu-14-04-lts/
+
+install PCL: http://www.pointclouds.org/downloads/linux.html
+sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl
+sudo apt-get update
+sudo apt-get install libpcl-all
+
+install OPENNI: https://github.com/OpenNI/OpenNI
+sudo apt-get libopenni-*
+
+install SensorKinect to drive kinect: 
+  git clone https://github.com/avin2/SensorKinect.git
+  #use SensorKinect/readme to install
+
+# build################################################################
+
+mkdir build ＆＆ cd build 
+cmake  .. 
+make 
+
+# Usage ##############################################################
+./lib/kinect1_drive 
+# to drive kinect1,it will show the rgb frame 、depth frame and pointcloud，
+you can press "enter" to save rgb and depth images to ../data/rgb_png and ../data/depth_png
+
+important:
+1) write the FindOpenNI.cmake file
+2) 如果出现了unsurported platorm，修改OniPlatform.h文件，注释所有if，直接#include “Linux-x86/xnplatformlinux-x86.h”
+
+reference:
+# about coding #
+http://viml.nchc.org.tw/blog/paper_info.php?CLASS_ID=1&SUB_ID=1&PAPER_ID=215
+http://blog.163.com/gz_ricky/blog/static/182049118201122311118325/
+
